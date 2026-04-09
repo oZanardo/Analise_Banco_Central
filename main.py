@@ -1,7 +1,9 @@
 import pandas as pd
 import requests
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine,types
 from datetime import datetime,timedelta
+
+from sqlalchemy.dialects.mysql import DOUBLE
 
 data_fim = datetime.now().strftime("%d/%m/%Y")
 data_inicio = datetime.today() - timedelta(days=365*10)
@@ -21,9 +23,11 @@ ipca['data'] = pd.to_datetime(ipca['data'], dayfirst=True)
 
 credito = pd.DataFrame(url_credito.json())
 credito['data'] = pd.to_datetime(credito['data'], dayfirst=True)
+credito['valor'] = credito['valor'].astype(float)
 
 carteiraCred = pd.DataFrame(url_carteiraCred.json())
 carteiraCred['data'] = pd.to_datetime(carteiraCred['data'], dayfirst=True)
+carteiraCred['valor'] = carteiraCred['valor'].astype(float)
 
 
 print(selic.tail())

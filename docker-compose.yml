@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  Projeto-dados-PJ:
+    image: postgres:17.0-alpine
+    container_name: postSQL
+    restart: always
+    environment:
+      POSTGRES_USER: ozanardo
+      POSTGRES_PASSWORD: 0123456789
+      POSTGRES_DB: analiseBACEN
+    ports:
+      - "5555:5432"
+    volumes:
+      - /home/ozanardo/Documents/1bancoDeDados/postgres_bacen_data:/var/lib/postgresql/data
