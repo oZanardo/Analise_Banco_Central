@@ -2,12 +2,12 @@ version: '3.8'
 
 services:
   Projeto-dados-PJ:
-    image: postgres:17.0-alpine
+    image: postgres:17
     container_name: postSQL
     restart: always
     environment:
       POSTGRES_USER: ozanardo
-      POSTGRES_PASSWORD: 0123456789
+      POSTGRES_PASSWORD: pass123
       POSTGRES_DB: analiseBACEN
     ports:
       - "5555:5432"
