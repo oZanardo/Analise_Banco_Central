@@ -1,0 +1,12 @@
+<<<<<<< HEAD
+=======
+# Ambiente Virtual
+analise_Bacen/
+venv/
+.venv/
+env/
+
+# Cache do Python
+__pycache__/
+*.pyc
+>>>>>>> 5244f72b (added libs to gitignore)
